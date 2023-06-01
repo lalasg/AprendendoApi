@@ -2,9 +2,12 @@ import Head from "next/head";
 import styles from "@/styles/Home.module.css";
 import { useState, useEffect } from "react";
 
+// COMEÇO JAVASCRIPT
 export default function Home() {
   const [usuarios, setUsuarios] = useState([])
 
+
+  //CONSULTA DA API
   useEffect(() => {
     fetch("/api/usuarios")
       .then((res) => res.json())
@@ -31,14 +34,19 @@ export default function Home() {
       body: JSON.stringify(usuario),
     };
 
+    //CONSULTA DA API
     fetch("/api/usuarios", request)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
       });
   };
+  // FINAL JAVASCRIPT
+
 
   return (
+    //COMEÇO DO HTML
+    //OBS: ALGUMAS TAG "HTML" PODE SE COMPORTA DE FORMA DIFERENTE EM ALGUNS FRAMEWORKS!!
     <>
       <Head>
         <title>Cadastro de usuário</title>
@@ -82,5 +90,6 @@ export default function Home() {
         <button type="submit">Enviar</button>
       </form>
     </>
+    // FINAL DO HTML
   );
 }
